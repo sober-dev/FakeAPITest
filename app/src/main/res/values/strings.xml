@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Fake API Test</string>
+    <string name="about_the_author_post">About the author post</string>
+    <string name="comments_to_the_post">Comments to the post</string>
+</resources>
