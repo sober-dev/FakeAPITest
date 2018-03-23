@@ -1,17 +1,19 @@
 package com.example.dmitry.fakeapitest
 
-import android.support.test.runner.AndroidJUnit4
+import com.example.dmitry.fakeapitest.db.CommentDao
+import com.example.dmitry.fakeapitest.db.FakeDatabaseHelper
+import com.example.dmitry.fakeapitest.db.PostDao
+import com.example.dmitry.fakeapitest.db.UserDao
 import com.example.dmitry.fakeapitest.models.*
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Test
-import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4::class)
-class SimpleEntityReadWriteTest {
-    private val postDao = MyApp.fakeDatabaseHelper.postDao
-    private val commentDao = MyApp.fakeDatabaseHelper.commentDao
-    private val userDao = MyApp.fakeDatabaseHelper.userDao
+class FakeDatabaseTest {
+    private val fakeDatabaseHelper = FakeDatabaseHelper(PostDao(), CommentDao(), UserDao())
+    private val postDao = fakeDatabaseHelper.postDao
+    private val commentDao = fakeDatabaseHelper.commentDao
+    private val userDao = fakeDatabaseHelper.userDao
 
     @Test
     fun postsRWTest() {
